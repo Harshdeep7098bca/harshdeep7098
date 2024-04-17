@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+protected:
+    string name;
+    int age;
+public:
+    void setData(const string& n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void displayData() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Transport : public Student {
+private:
+    string route;
+    string vehicleType;
+public:
+    void setTransportData(const string& r, const string& v) {
+        route = r;
+        vehicleType = v;
+    }
+
+    void displayTransportData() {
+        cout << "Transport Route: " << route << endl;
+        cout << "Vehicle Type: " << vehicleType << endl;
+    }
+};
+
+int main() {
+    Transport studentTransport;
+    studentTransport.setData("John Doe", 20); // Setting student data
+    studentTransport.setTransportData("Route A", "Bus"); // Setting transport data
+
+    cout << "Student Details:" << endl;
+    studentTransport.displayData(); // Displaying student data
+    studentTransport.displayTransportData(); // Displaying transport data
+
+    return 0;
+}
